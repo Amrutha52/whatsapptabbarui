@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:tabarssample/home_screen/tabs/callstab.dart';
 import 'package:tabarssample/home_screen/tabs/chatstab.dart';
+import 'package:tabarssample/home_screen/tabs/grouptab.dart';
+import 'package:tabarssample/home_screen/tabs/statustab.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -43,10 +46,10 @@ class _HomeScreenState extends State<HomeScreen> {
         body: TabBarView(
            // physics: NeverScrollableScrollPhysics(), swipe cheythal marilla. click cheythale marullu
             children: [
-          Container(color: Colors.red,),
+          GroupTab(),
           ChatsTab(),
-          Container(color: Colors.amber,),
-          Container(color: Colors.blue,),
+          CallsTab(),
+          StatusTab(),
         ])
       ),
     );

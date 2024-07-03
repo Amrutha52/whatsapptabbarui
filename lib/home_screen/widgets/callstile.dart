@@ -1,19 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class ChatsTile extends StatelessWidget
+class CallsTile extends StatelessWidget
 {
 
-  const ChatsTile({super.key,
+  const CallsTile({super.key,
     this.imageUrl,
     required this.userName,
-    required this.lastMessage,
+    required this.callType,
     required this.time,
-    required this.count});
+    this.iconUrl});
 
-  final String? imageUrl;
-  final userName, lastMessage, time;
-  final int count;
+  final String? imageUrl, iconUrl;
+  final userName, callType, time;
+  
 
   @override
   Widget build(BuildContext context)
@@ -32,8 +32,7 @@ class ChatsTile extends StatelessWidget
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(userName, style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16),),
-                Text(lastMessage, style: TextStyle(color: Colors.grey, fontWeight: FontWeight.normal, fontSize: 14))
-
+                Text(callType, style: TextStyle(color: Colors.grey, fontWeight: FontWeight.normal, fontSize: 14))
               ],
             ),
             Spacer(),
@@ -42,12 +41,11 @@ class ChatsTile extends StatelessWidget
               children: [
                 Text(time),
                 SizedBox(width: 5,),
-                count != 0 ?
+
                 CircleAvatar(
                   radius: 10,
-                  backgroundColor: Color(0xff23D566),
-                  child: Text(count.toString(), style: TextStyle(fontSize: 10, color: Colors.white),),
-                ) : SizedBox()
+                  backgroundImage: NetworkImage(iconUrl!),
+                )
               ],
             )
           ],

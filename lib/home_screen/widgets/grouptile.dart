@@ -1,19 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class ChatsTile extends StatelessWidget
+class GroupTile extends StatelessWidget
 {
 
-  const ChatsTile({super.key,
+  const GroupTile({super.key,
     this.imageUrl,
     required this.userName,
     required this.lastMessage,
     required this.time,
-    required this.count});
+  });
 
   final String? imageUrl;
-  final userName, lastMessage, time;
-  final int count;
+  final userName, time, lastMessage;
+
 
   @override
   Widget build(BuildContext context)
@@ -33,21 +33,14 @@ class ChatsTile extends StatelessWidget
               children: [
                 Text(userName, style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16),),
                 Text(lastMessage, style: TextStyle(color: Colors.grey, fontWeight: FontWeight.normal, fontSize: 14))
-
               ],
             ),
             Spacer(),
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(time),
-                SizedBox(width: 5,),
-                count != 0 ?
-                CircleAvatar(
-                  radius: 10,
-                  backgroundColor: Color(0xff23D566),
-                  child: Text(count.toString(), style: TextStyle(fontSize: 10, color: Colors.white),),
-                ) : SizedBox()
+                Text(time, style: TextStyle(color: Colors.grey, fontWeight: FontWeight.normal, fontSize: 14)),
+
               ],
             )
           ],
